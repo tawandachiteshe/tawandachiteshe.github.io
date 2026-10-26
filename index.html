@@ -4,306 +4,242 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tawanda Chiteshe</title>
-<meta name="description" content="Tawanda Chiteshe: full-stack and systems engineer (Go, Rust, TypeScript). Builds backends, offline-first apps and auth-heavy platforms. Open to remote work.">
-<meta property="og:title" content="Tawanda Chiteshe, Software Engineer">
-<meta property="og:description" content="Go, Rust and TypeScript. Multi-tenant SaaS, offline-first POS, GIS backends. Open to remote roles.">
+<meta name="description" content="Tawanda Chiteshe, a software developer in Harare. Go, Rust, TypeScript and Kotlin; backends, offline-first apps and Kubernetes. Open to remote work.">
+<meta property="og:title" content="Tawanda Chiteshe">
+<meta property="og:description" content="Software developer in Harare. Backends, offline-first apps, Kubernetes, and the odd emulator. Open to remote work.">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/42421121?v=4">
 <link rel="icon" href="https://avatars.githubusercontent.com/u/42421121?v=4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f6f3ee;
-    --surface: #fffdf9;
-    --ink: #1b1a17;
-    --muted: #5f5b53;
-    --line: #e2ddd3;
-    --accent: #c2410c;
-    --accent-soft: #fbe6d9;
-    --tag: #efeae1;
+    --bg: #fbfaf7;
+    --ink: #222;
+    --muted: #6b6b6b;
+    --rule: #e4e1da;
+    --link: #1d4ed8;
+    --visited: #6d28d9;
+    --ascii: #8a8478;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #13120f;
-      --surface: #1b1a16;
-      --ink: #f1ede5;
-      --muted: #a39e93;
-      --line: #2e2c26;
-      --accent: #fb8a4c;
-      --accent-soft: #3a2316;
-      --tag: #26241f;
+      --bg: #161616;
+      --ink: #e6e3dd;
+      --muted: #9a968e;
+      --rule: #2c2b29;
+      --link: #8ab4f8;
+      --visited: #c4a7f5;
+      --ascii: #7d786f;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #13120f;
-    --surface: #1b1a16;
-    --ink: #f1ede5;
-    --muted: #a39e93;
-    --line: #2e2c26;
-    --accent: #fb8a4c;
-    --accent-soft: #3a2316;
-    --tag: #26241f;
+    --bg: #161616;
+    --ink: #e6e3dd;
+    --muted: #9a968e;
+    --rule: #2c2b29;
+    --link: #8ab4f8;
+    --visited: #c4a7f5;
+    --ascii: #7d786f;
   }
 
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
   body {
     margin: 0;
     background: var(--bg);
     color: var(--ink);
-    font: 400 17px/1.6 "Instrument Sans", system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
+    font: 18px/1.65 "Source Serif 4", Georgia, serif;
   }
-  a { color: inherit; }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
-  @media (min-width: 720px) { .wrap { padding: 0 32px; } }
+  main { max-width: 680px; margin: 0 auto; padding: 48px 16px 64px; }
+  a { color: var(--link); text-underline-offset: 2px; }
+  a:visited { color: var(--visited); }
+  h1 { font-size: 1.9rem; font-weight: 600; margin: 0 0 4px; line-height: 1.2; }
+  h2 { font-size: 1.15rem; font-weight: 600; margin: 48px 0 12px; }
+  p { margin: 0 0 16px; }
+  .sub { color: var(--muted); margin-bottom: 28px; }
 
-  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.82rem; letter-spacing: 0.01em; }
-  h1, h2, h3 { font-family: "Bricolage Grotesque", sans-serif; line-height: 1.1; margin: 0; }
+  .intro { display: flex; gap: 28px; align-items: flex-start; }
+  .portrait {
+    flex: none;
+    margin: 4px 0 0;
+    font: 5.2px/0.62 "JetBrains Mono", ui-monospace, monospace;
+    color: var(--ascii);
+    user-select: none;
+  }
+  .portrait figcaption { font: italic 13px/1.4 "Source Serif 4", Georgia, serif; color: var(--muted); margin-top: 10px; max-width: 150px; }
+  .portrait pre { margin: 0; font: inherit; }
+  @media (max-width: 560px) {
+    .intro { flex-direction: column; gap: 8px; }
+    .portrait { font-size: 4.4px; }
+    .portrait figcaption { max-width: none; }
+  }
 
-  /* Nav */
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; gap: 16px; }
-  nav .links { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
-  nav a { text-decoration: none; color: var(--muted); }
-  nav a:hover { color: var(--ink); }
+  .log { list-style: none; margin: 0; padding: 0; }
+  .log li { display: grid; grid-template-columns: 96px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--rule); }
+  .log li:last-child { border-bottom: 1px solid var(--rule); }
+  .log .when { color: var(--muted); font-size: 0.9rem; padding-top: 3px; }
+  .log b { font-weight: 600; }
+  .log p { margin: 4px 0 0; }
+  @media (max-width: 560px) { .log li { grid-template-columns: 1fr; gap: 2px; } }
 
-  /* Hero */
-  .hero { padding: 56px 0 72px; border-bottom: 1px solid var(--line); }
-  .status { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
-  .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
-  .hero h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); font-weight: 700; margin: 24px 0 20px; letter-spacing: -0.02em; max-width: 14ch; }
-  .hero h1 em { font-style: normal; color: var(--accent); }
-  .hero p.lede { font-size: 1.2rem; color: var(--muted); max-width: 60ch; margin: 0 0 32px; }
-  .cta { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn { display: inline-block; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; border: 1px solid var(--ink); }
-  .btn.primary { background: var(--ink); color: var(--bg); }
-  .btn:hover { transform: translateY(-1px); }
-  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-top: 56px; }
-  .facts div { border-top: 2px solid var(--ink); padding-top: 12px; }
-  .facts strong { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.15rem; }
-  .facts span { color: var(--muted); font-size: 0.95rem; }
+  .made { padding-left: 20px; margin: 0; }
+  .made li { margin: 8px 0; }
 
-  /* Sections */
-  section { padding: 72px 0; border-bottom: 1px solid var(--line); }
-  .section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
-  .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); }
-  .section-head p { color: var(--muted); margin: 0; max-width: 46ch; }
-
-  .grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
-  @media (min-width: 760px) { .grid.two { grid-template-columns: 1fr 1fr; } .grid.three { grid-template-columns: repeat(3, 1fr); } }
-
-  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
-  .card .kind { color: var(--accent); }
-  .card h3 { font-size: 1.35rem; }
-  .card p { margin: 0; color: var(--muted); }
-  .card ul { margin: 0; padding-left: 18px; color: var(--muted); }
-  .card ul li { margin: 4px 0; }
-  .card .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding-top: 8px; }
-  .card .foot a { color: var(--accent); font-weight: 600; text-decoration: none; }
-  .card .foot a:hover { text-decoration: underline; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tags span { background: var(--tag); padding: 3px 8px; border-radius: 6px; }
-  .card.feature { grid-column: 1 / -1; }
-  @media (min-width: 760px) { .card.feature { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; } .card.feature > div:first-child { display: flex; flex-direction: column; gap: 12px; } .card.feature .side { display: flex; flex-direction: column; gap: 12px; } }
-
-  /* Skills */
-  .skills { display: grid; gap: 24px; grid-template-columns: 1fr; }
-  @media (min-width: 760px) { .skills { grid-template-columns: repeat(2, 1fr); } }
-  .skills h3 { font-size: 1.05rem; margin-bottom: 10px; }
-
-  /* Remote */
-  .remote li { margin: 10px 0; }
-  .remote li strong { color: var(--ink); }
-  .remote ul { padding-left: 18px; color: var(--muted); margin: 0; }
-
-  /* Contact */
-  .contact h2 { font-size: clamp(2rem, 5vw, 3.2rem); max-width: 18ch; margin-bottom: 20px; }
-  .contact p { color: var(--muted); max-width: 55ch; }
-  footer { padding: 32px 0 48px; color: var(--muted); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  .theme-toggle { background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 8px; padding: 6px 10px; cursor: pointer; font: inherit; }
+  footer { margin-top: 56px; color: var(--muted); font-size: 0.9rem; }
+  button.theme { background: none; border: 0; padding: 0; color: var(--muted); font: inherit; text-decoration: underline; cursor: pointer; }
 </style>
 </head>
 <body>
-<div class="wrap">
+<main>
 
-  <nav>
-    <a href="#" class="mono" style="color:var(--ink)">tawanda.chiteshe</a>
-    <div class="links mono">
-      <a href="#work">Work</a>
-      <a href="#lab">Lab</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+  <div class="intro">
+    <figure class="portrait" aria-hidden="true">
+<pre>                   .,,::::,,.
+                  ,:;;;;;;;;:,
+                 ,;;;;;;;;;;;;,
+                ,;;;;;;;;;;;;;;,
+               ,;;;;;;;;;;;;;;;;,
+              .:;;;;;;;;;;;;;;;;:.
+              ,;;;;;;;;;;;;;;;;;;,
+              :;;;;;;;;;;;;;;;;;;:
+             .;;;;;;;;;;;;;;;;;;;;.
+             .;;:::;;;;;;;;;;:::;;.
+             .;;::::;;;;;;;;::::;;.
+            .:;;;iffi;;;;;;iffi;;;:.
+            :;;;iG000f;;;;f000Gi;;;:
+           .:;;;t8f1GGi;;iGG1f8t;;;:.
+           .:;;;10Lt0Ci;;iC0tL01;;;:.
+           .:;;;iC800t;;;;t008Ci;;;:.
+           .:;;;;itf1;;;;;;1fti;;;;:.
+            ,;;;;;;;;;;;;;;;;;;;;;;,
+             ,;;;;;;;;;;;;;;;;;;;;,
+             .:;;;;1tfffffft1;;;;:.
+              :;;;108888888801;;;:
+              .;;;t8888888888t;;;.
+               :;;108@8888@801;;:
+               .:;;1fLfLLLLf1;;:.
+                .:;;;;;;;;;;;;:.
+                 .:;;;;;;;;;;:.
+                  .:;;;;;;;;:.
+               ..,,:;;;;;;;;:,,..
+              .,,,,:;;;;;;;;:,,,,.
+              ,,,,,:;;;;;;;;:,,,,,
+             .,,,,,:;;;;;;;;:,,,,,.
+           ..,,,,,,:;;;;;;;;:,,,,,,..
+          .,,,,,,,,::;;;;;;::,,,,,,,,.
+         .,,,,,,,,,,:;;;;;;:,,,,,,,,,,.
+        .,,,,,,,,::,,::::::,,::,,,,,,,,.
+       .,,,,,,,,:ti,,,,,,,,,,it:,,,,,,,,.
+       ,,,,,,,,,:Lf:,,,,,,,,:fL:,,,,,,,,,
+      .,,,,,,,,,:Cf:,,,,,,,,:fC:,,,,,,,,,.
+      .,,,,,,,,,:Cf:,,,,,,,,:fC:,,,,,,,,,.
+      ,,,,,,,,,,:Cf:,,,,,,,,:fC:,,,,,,,,,,
+     .,,,,,,,,,,:Cf:,,,,,,,,:fC:,,,,,,,,,,.
+     .,,,,,,,,,,:Cf:,,,,,,,,:fC:,,,,,,,,,,.
+     .,,,,,,,,,,:Cf:,,,,,,,,:fL:,,,,,,,,,,.</pre>
+      <figcaption>Drawn by <a href="https://github.com/tawandachiteshe/image-to-ascii-art">image-to-ascii</a>, a small Rust tool I wrote.</figcaption>
+    </figure>
+    <div>
+      <h1>Tawanda Chiteshe</h1>
+      <p class="sub">Software developer · Harare, Zimbabwe</p>
+      <p>
+        I build backends and the apps that sit on top of them. Right now that's
+        <a href="https://github.com/nerd-zero">Nerd Zero</a>, where I'm working on listnun, a newsletter
+        platform where every customer shares one Listmonk fork, and Homwe POS, a till app
+        that has to keep selling when the internet doesn't.
+      </p>
+      <p>
+        Most days I write Go, Rust and TypeScript, with some Kotlin. I also look after the Kubernetes
+        side of what I ship. Outside work I write emulators, game engines and a
+        synthesizer for the mbira, and I'm studying for a diploma in software engineering.
+      </p>
+      <p>
+        I'm looking for remote work, full-time or contract.
+        <a href="mailto:dickenstawanda@gmail.com">Email me</a>, or read my
+        <a href="Tawanda-Chiteshe-CV.pdf">CV (PDF)</a>.
+      </p>
     </div>
-  </nav>
+  </div>
 
-  <header class="hero">
-    <span class="status mono">Open to remote roles · Harare, UTC+2</span>
-    <h1>I build backends that <em>keep working</em> when things go wrong.</h1>
-    <p class="lede">
-      I'm Tawanda, a full-stack and systems engineer. I mostly write Go, Rust and TypeScript.
-      In production I've shipped multi-tenant SaaS, an offline-first point-of-sale app,
-      GIS/satellite-imagery APIs and student portals with OCR built in. Most of them use
-      Keycloak/OIDC for auth and all of them run in Docker. In my own time I write game engines, emulators and audio synths.
-    </p>
-    <div class="cta">
-      <a class="btn primary" href="mailto:dickenstawanda@gmail.com">Email me</a>
-      <a class="btn" href="https://github.com/tawandachiteshe">GitHub</a>
-      <a class="btn" href="Tawanda-Chiteshe-CV.pdf" download>Download CV</a>
-      <a class="btn" href="https://www.linkedin.com/in/tawanda-chiteshe-93114219a">LinkedIn</a>
-    </div>
-    <div class="facts">
-      <div><strong>7+ years</strong><span>writing software, on GitHub since 2018</span></div>
-      <div><strong>Go · Rust · TS</strong><span>also Kotlin, Python, Java, C++</span></div>
-      <div><strong>Async-first</strong><span>written specs, docs and small PRs</span></div>
-      <div><strong>UTC+2</strong><span>overlaps with all of Europe and the US morning</span></div>
-    </div>
-  </header>
+  <h2>Work</h2>
+  <ul class="log">
+    <li>
+      <span class="when">2025 – now</span>
+      <div>
+        <b>Nerd Zero</b>, software developer
+        <p>
+          On <b>listnun</b> (Go, React) we started with one Listmonk pod per customer and moved to a
+          single shared fork that tells customers apart by the Host header, so adding a customer is
+          a database row instead of a deployment. Each customer gets their own Postmark sending
+          server. I also built custom domains, billing and invoices.
+        </p>
+        <p>
+          <b>Homwe POS</b> is a Tauri app with a Rust core. Sales are saved to SQLite first and
+          uploaded in idempotent batches, and if the server rejects a batch it is resent one sale
+          at a time. The app also prints receipts to network and USB printers.
+        </p>
+        <p>
+          I deployed listnun to our k3s clusters with Flux, look after the shared Postgres cluster
+          (CloudNativePG) and set up OpenBao for secrets.
+        </p>
+      </div>
+    </li>
+    <li>
+      <span class="when">2025 – 2026</span>
+      <div>
+        <b>Vuleka</b>, software developer
+        <p>NestJS and Prisma API for a distribution business: merchants, stock, orders and
+          deliveries, with order updates sent over WhatsApp.</p>
+      </div>
+    </li>
+    <li>
+      <span class="when">2025 – 2026</span>
+      <div>
+        <b>Freelance</b>
+        <p>A Go and PostGIS backend for an agritech product, with a Python service that turns
+          satellite images into crop-health (NDVI) maps. Before that, a voucher system for paid
+          Wi-Fi hotspots: <a href="https://github.com/tawandachiteshe/poshto-spot-server">server</a> and
+          <a href="https://github.com/tawandachiteshe/captive-portal">captive portal</a>.</p>
+      </div>
+    </li>
+    <li>
+      <span class="when">2023 – now</span>
+      <div>
+        <b>Runhare</b>, software developer
+        <p>An e-learning platform for tutors and learners, with a Quarkus API and a Next.js frontend.</p>
+      </div>
+    </li>
+    <li>
+      <span class="when">2023</span>
+      <div>
+        <b>Kgopelang Health</b>, software developer
+        <p>BANS, a system for managing patient cases, nurse bookings and rapid medical tests, with
+          insurer integrations. NestJS, PostGIS, Next.js and Keycloak.</p>
+      </div>
+    </li>
+  </ul>
 
-  <section id="work">
-    <div class="section-head">
-      <h2>Selected work</h2>
-      <p>Production systems I designed and built. Some code is private because it belongs to clients, but I can walk you through any of it on a call.</p>
-    </div>
+  <h2>Things I've made</h2>
+  <ul class="made">
+    <li><a href="https://github.com/tawandachiteshe/mbirasyth">mbirasyth</a>: a Shona mbira synthesizer in Rust. It uses no samples: the tines, the bottle-cap buzz and the gourd are all modelled, and it composes interlocking parts on its own.</li>
+    <li><a href="https://github.com/tawandachiteshe/crust-6502-emulator">crust-6502-emulator</a>: a 6502 CPU emulator with a step-through debugger, written over Christmas 2023.</li>
+    <li><a href="https://github.com/tawandachiteshe/school-portal">school-portal</a>: college admissions without the paperwork. It reads ZIMSEC certificates with OCR and checks national ID numbers.</li>
+    <li><a href="https://github.com/tawandachiteshe/coinage">coinage</a>: a money tracker in Kotlin Multiplatform that keeps your data on your phone.</li>
+    <li><a href="https://github.com/tawandachiteshe/cuboid">cuboid</a>: a C++ game engine built to run on low-end computers.</li>
+  </ul>
 
-    <div class="grid two">
+  <h2>Contact</h2>
+  <p>
+    <a href="mailto:dickenstawanda@gmail.com">dickenstawanda@gmail.com</a> ·
+    <a href="https://www.linkedin.com/in/tawanda-chiteshe-93114219a">LinkedIn</a> ·
+    <a href="https://github.com/tawandachiteshe">GitHub</a> ·
+    <a href="Tawanda-Chiteshe-CV.pdf">CV</a>
+  </p>
+  <p>I'm on UTC+2, so my working day overlaps with Europe's and with the US morning.</p>
 
-      <article class="card feature">
-        <div>
-          <span class="kind mono">Multi-tenant SaaS · Go + React</span>
-          <h3>Newsletter platform as a service</h3>
-          <p>
-            Hosted email marketing built on a multi-tenant fork of Listmonk. Customers sign up,
-            create a workspace and start sending without anyone setting up servers for them.
-          </p>
-        </div>
-        <div class="side">
-          <ul>
-            <li>Moved the architecture from one pod per tenant to one shared fork scoped by Host header. Adding a tenant is now a database row, not a deployment.</li>
-            <li>Provisioning goes through the fork's Operator API and Postmark's Account API, so every tenant gets its own sending server.</li>
-            <li>Custom domains, metered billing with pay-as-you-go add-ons, invoices, and a background worker that suspends lapsed accounts.</li>
-            <li>Swagger docs generated from the code, versioned migrations, and one <code>make check</code> gate (fmt, vet, build, test).</li>
-          </ul>
-          <div class="tags mono"><span>Go</span><span>PostgreSQL</span><span>React</span><span>Postmark</span><span>Keycloak</span><span>Docker</span></div>
-        </div>
-      </article>
-
-      <article class="card">
-        <span class="kind mono">Desktop · Rust + Tauri 2</span>
-        <h3>Offline-first point of sale</h3>
-        <p>A till app for retail. It keeps selling with no internet and syncs once the connection is back.</p>
-        <ul>
-          <li>Rust handles everything that must be correct: the typed GraphQL client, SQLite, sale arithmetic that matches the server exactly, and ESC/POS receipts.</li>
-          <li>Sales upload in idempotent batches with retries. If the server rejects a batch, it's resent one sale at a time so nothing is lost.</li>
-          <li>Finds network printers on the LAN and prints over USB on Linux and Windows. Supports a customer display on a second monitor.</li>
-        </ul>
-        <div class="tags mono"><span>Rust</span><span>Tauri</span><span>SQLite</span><span>React</span><span>GraphQL</span></div>
-      </article>
-
-      <article class="card">
-        <span class="kind mono">GIS · Go + Python</span>
-        <h3>Agritech satellite platform</h3>
-        <p>Backend for an agriculture product that turns satellite imagery into field health data.</p>
-        <ul>
-          <li>A Go API on PostGIS, with Keycloak auth and standalone migration tooling.</li>
-          <li>A separate FastAPI + Celery GIS service that computes NDVI from raster data, stores it in S3/MinIO and queues jobs through Valkey.</li>
-          <li>Exports an OpenAPI contract so the frontend gets a typed client.</li>
-        </ul>
-        <div class="tags mono"><span>Go</span><span>PostGIS</span><span>FastAPI</span><span>Celery</span><span>MinIO</span></div>
-      </article>
-
-      <article class="card">
-        <span class="kind mono">EdTech · TypeScript + Python</span>
-        <h3>Campus onboarding portal</h3>
-        <p>Takes a paper-heavy college admissions process and moves it online, from application to student card.</p>
-        <ul>
-          <li>OCR reads ZIMSEC certificates and result slips, then checks the grades against entry requirements.</li>
-          <li>Validates Zimbabwe national IDs, including the mod-23 check letter and district codes.</li>
-          <li>Includes the student dashboard, staff consoles, and an AI assistant that can only see data the student is allowed to see.</li>
-        </ul>
-        <div class="foot">
-          <div class="tags mono"><span>TypeScript</span><span>Python</span><span>PostgreSQL</span><span>LLM</span></div>
-          <a href="https://github.com/tawandachiteshe/school-portal">Code →</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <span class="kind mono">Marketplace · Next.js + GraphQL</span>
-        <h3>Booking &amp; distribution platforms</h3>
-        <p>Several platforms where customers, vendors, agents and admins each have their own role.</p>
-        <ul>
-          <li>An adventure-booking marketplace built on Next.js 16, Apollo and OIDC.</li>
-          <li>A NestJS + Prisma API for a distribution business, covering merchants, inventory, orders and deliveries, with WhatsApp notifications.</li>
-          <li>Captive-portal and FreeRADIUS servers for paid Wi-Fi hotspots.</li>
-        </ul>
-        <div class="tags mono"><span>Next.js</span><span>NestJS</span><span>Prisma</span><span>GraphQL</span><span>RADIUS</span></div>
-      </article>
-
-    </div>
-  </section>
-
-  <section id="lab">
-    <div class="section-head">
-      <h2>The lab</h2>
-      <p>Things I build because I want to know how they work. This is where I learned low-level performance, rendering and audio.</p>
-    </div>
-    <div class="grid three">
-      <article class="card">
-        <span class="kind mono">Rust · Audio DSP</span>
-        <h3>mbirasyth</h3>
-        <p>A procedural Shona mbira synthesiser that uses no samples. It models the tines, the bottle-cap buzz and the gourd resonance, and writes interlocking parts from the 48-pulse chord system.</p>
-        <div class="foot"><span></span><a href="https://github.com/tawandachiteshe/mbirasyth">Code →</a></div>
-      </article>
-      <article class="card">
-        <span class="kind mono">C++ · Graphics</span>
-        <h3>Cuboid &amp; Polyboid</h3>
-        <p>Game engines and renderers in OpenGL, Vulkan and Metal, using ECS (EnTT), Lua scripting and HLSL/GLSL shaders. Cuboid is built to run on low-end machines.</p>
-        <div class="foot"><span></span><a href="https://github.com/tawandachiteshe/cuboid">Code →</a></div>
-      </article>
-      <article class="card">
-        <span class="kind mono">Rust · Emulation</span>
-        <h3>crust-6502</h3>
-        <p>An emulator for the MOS 6502 CPU, written in Rust. I also wrote a DualSense controller CLI and an image-to-ASCII converter.</p>
-        <div class="foot"><span></span><a href="https://github.com/tawandachiteshe/crust-6502-emulator">Code →</a></div>
-      </article>
-    </div>
-  </section>
-
-  <section id="skills">
-    <div class="section-head"><h2>Toolbox</h2></div>
-    <div class="skills">
-      <div><h3>Backend</h3><div class="tags mono"><span>Go</span><span>Rust</span><span>Node / NestJS</span><span>Kotlin / Ktor</span><span>Java / Quarkus / Spring</span><span>Python / FastAPI</span><span>GraphQL</span><span>REST + OpenAPI</span></div></div>
-      <div><h3>Frontend &amp; apps</h3><div class="tags mono"><span>React</span><span>Next.js</span><span>Astro</span><span>Svelte</span><span>Tailwind</span><span>Tauri</span><span>Compose Multiplatform</span></div></div>
-      <div><h3>Data</h3><div class="tags mono"><span>PostgreSQL</span><span>PostGIS</span><span>SQLite</span><span>Prisma</span><span>Valkey / Redis</span><span>MinIO / S3</span></div></div>
-      <div><h3>Infra &amp; auth</h3><div class="tags mono"><span>Docker / Podman</span><span>Traefik</span><span>nginx</span><span>Keycloak</span><span>Authentik</span><span>OIDC</span><span>Grafana</span><span>Linux</span></div></div>
-    </div>
-  </section>
-
-  <section class="remote">
-    <div class="section-head"><h2>How I work remotely</h2></div>
-    <ul>
-      <li><strong>I write things down.</strong> Every project starts with a design doc and keeps a <code>docs/</code> folder explaining why decisions were made, so nobody has to wait for a meeting to find out.</li>
-      <li><strong>Small changes, real checks.</strong> Formatting, linting and tests have to pass before I call something done. I keep pull requests small enough to review over coffee.</li>
-      <li><strong>Typed boundaries.</strong> I generate API clients from schemas instead of writing payloads by hand, and model errors explicitly. This removes a lot of the bugs that come up in code review.</li>
-      <li><strong>Built for bad networks.</strong> I build in places where power and connectivity drop out, so I design for offline use and retries from the start.</li>
-    </ul>
-  </section>
-
-  <section id="contact" class="contact" style="border-bottom:0">
-    <h2>Have a backend that needs an owner?</h2>
-    <p>I'm looking for full-time or long-term contract remote roles in backend, full-stack or Rust/systems work. The quickest way to reach me is email. I usually reply within a day.</p>
-    <div class="cta" style="margin-top:24px">
-      <a class="btn primary" href="mailto:dickenstawanda@gmail.com">dickenstawanda@gmail.com</a>
-      <a class="btn" href="https://github.com/tawandachiteshe">github.com/tawandachiteshe</a>
-      <a class="btn" href="Tawanda-Chiteshe-CV.pdf" download>Download CV (PDF)</a>
-    </div>
-  </section>
-
-  <footer class="mono">
-    <span>© 2026 Tawanda Chiteshe · Harare, Zimbabwe</span>
-    <button class="theme-toggle" id="theme" type="button">Toggle theme</button>
+  <footer>
+    <button class="theme" id="theme" type="button">Switch light/dark</button>
   </footer>
-</div>
+</main>
 <script>
   (function () {
     var root = document.documentElement;
