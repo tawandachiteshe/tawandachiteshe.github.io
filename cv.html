@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tawanda Chiteshe — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 14mm 15mm; }
+  * { box-sizing: border-box; }
+  body { margin: 0; color: #1b1a17; font: 9.6pt/1.42 "Instrument Sans", sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2 { font-family: "Bricolage Grotesque", sans-serif; margin: 0; }
+  h1 { font-size: 22pt; letter-spacing: -0.01em; }
+  .role { font-weight: 600; color: #c2410c; margin: 2px 0 4px; font-size: 10.5pt; }
+  .contact { color: #5f5b53; }
+  .contact a { border-bottom: 1px solid #e2ddd3; }
+  h2 { font-size: 11pt; text-transform: uppercase; letter-spacing: 0.06em; color: #c2410c;
+       border-bottom: 1px solid #e2ddd3; padding-bottom: 2px; margin: 12px 0 6px; }
+  p { margin: 0 0 4px; }
+  ul { margin: 2px 0 6px; padding-left: 14px; }
+  li { margin: 1px 0; }
+  .job { break-inside: avoid; margin-bottom: 6px; }
+  .job-head { display: flex; justify-content: space-between; gap: 12px; }
+  .job-head strong { font-weight: 600; }
+  .job-head span { color: #5f5b53; white-space: nowrap; }
+  .skills { display: grid; grid-template-columns: 108px 1fr; gap: 1px 8px; }
+  .skills b { font-weight: 600; }
+  .muted { color: #5f5b53; }
+</style>
+</head>
+<body>
+  <h1>Tawanda Chiteshe</h1>
+  <div class="role">Full-stack &amp; Systems Engineer</div>
+  <div class="contact">
+    Harare, Zimbabwe (UTC+2) · Open to remote and freelance work<br>
+    <a href="mailto:dickenstawanda@gmail.com">dickenstawanda@gmail.com</a> ·
+    <a href="https://www.linkedin.com/in/tawanda-chiteshe">linkedin.com/in/tawanda-chiteshe</a> ·
+    <a href="https://github.com/tawandachiteshe">github.com/tawandachiteshe</a> ·
+    <a href="https://tawandachiteshe.github.io">tawandachiteshe.github.io</a>
+  </div>
+
+  <h2>Summary</h2>
+  <p>Self-taught engineer, now studying software engineering, who has shipped production systems for clients since 2020. I build multi-tenant SaaS backends, offline-first desktop apps, GIS APIs and auth-heavy web portals in Go, Rust, TypeScript and Kotlin. Comfortable down to the metal: I have written game engines, a CPU emulator and an audio synthesizer.</p>
+
+  <h2>Technical skills</h2>
+  <div class="skills">
+    <b>Languages</b><span>Go, Rust, TypeScript, Kotlin, Java, Python, C++, SQL</span>
+    <b>Backend</b><span>NestJS, Quarkus, Spring Boot, FastAPI, Ktor, GraphQL, gRPC, REST + OpenAPI, SQLAlchemy, Celery</span>
+    <b>Frontend &amp; apps</b><span>React, Next.js, Vite, Tailwind CSS, Tauri 2, Compose Multiplatform</span>
+    <b>Data</b><span>PostgreSQL, PostGIS, SQLite, Prisma, Flyway, Valkey/Redis, MinIO/S3</span>
+    <b>Infra &amp; auth</b><span>Docker, Kubernetes (k3s), Flux CD, CloudNativePG, OpenBao, Podman, Traefik, nginx, Keycloak, Authentik, OIDC/JWT, FreeRADIUS, Linux</span>
+  </div>
+
+  <h2>Experience</h2>
+  <div class="job">
+    <div class="job-head"><strong>Software Developer — Nerd Zero</strong><span>2025 – present</span></div>
+    <ul>
+      <li><b>listnun, newsletter platform as a service (Go, React):</b> building a multi-tenant SaaS on a shared Listmonk fork. Moved from one pod per tenant to one shared fork scoped by Host header, so adding a tenant is a database row, not a deployment.</li>
+      <li>Integrated Postmark's Account API so every tenant gets its own sending server; built custom domains, metered billing, invoices and a worker that suspends lapsed accounts.</li>
+      <li><b>Homwe POS, offline-first point of sale (Rust, Tauri 2, React):</b> Rust owns the GraphQL client, SQLite, sale arithmetic and ESC/POS receipts. Sales upload in idempotent batches with retries, so no sale is lost when the connection drops.</li>
+      <li>Added LAN printer discovery, USB printing on Linux and Windows, and a customer display on a second monitor.</li>
+      <li><b>Infrastructure (Kubernetes):</b> deployed listnun to the company's k3s clusters on Hetzner Cloud through GitOps (Flux CD), managed the shared PostgreSQL cluster (CloudNativePG) and set up OpenBao for secrets management.</li>
+    </ul>
+  </div>
+  <div class="job">
+    <div class="job-head"><strong>Software Developer — Vuleka</strong><span>2025 – 2026</span></div>
+    <ul>
+      <li>Built the NestJS 11 + Prisma API for a distribution platform: merchants, inventory, ordering and deliveries.</li>
+      <li>Added Keycloak role-based auth, MinIO file storage and WhatsApp order notifications through WATI; worked on the Next.js frontend.</li>
+    </ul>
+  </div>
+  <div class="job">
+    <div class="job-head"><strong>Software Developer — Runhare</strong><span>2023 – present</span></div>
+    <ul>
+      <li>Building an interactive e-learning platform with separate tutor and learner dashboards.</li>
+      <li>Built the Quarkus (Java) API: JWT auth, PostgreSQL with Flyway migrations, S3 file storage, email and scheduled jobs, served with a Next.js frontend.</li>
+    </ul>
+  </div>
+  <div class="job">
+    <div class="job-head"><strong>Software Developer — Kgopelang Health</strong><span>2023</span></div>
+    <ul>
+      <li>Built BANS (Business Admin Notification System): a NestJS + PostGIS API and Next.js app for managing patient cases, nurse bookings, rapid medical tests and insurer integrations.</li>
+      <li>Secured it with Keycloak and ran it in Docker.</li>
+    </ul>
+  </div>
+  <div class="job">
+    <div class="job-head"><strong>Freelance</strong><span>2025 – 2026</span></div>
+    <ul>
+      <li><b>Agritech GIS platform:</b> Go API on PostGIS with Keycloak auth, plus a FastAPI + Celery service that computes NDVI from satellite rasters.</li>
+      <li><b>Wi-Fi hotspot billing:</b> NestJS + FreeRADIUS server and Next.js captive portal for paid vouchers (<a href="https://captive-portal-delta.vercel.app">live demo</a>).</li>
+    </ul>
+  </div>
+  <div class="job">
+    <div class="job-head"><strong>Software Developer — Elula Online</strong><span>Dec 2020 – Jan 2021</span></div>
+    <ul>
+      <li>Built a Python gRPC service using SQLAlchemy for database access.</li>
+    </ul>
+  </div>
+
+  <h2>Selected projects</h2>
+  <ul>
+    <li><b><a href="https://github.com/tawandachiteshe/school-portal">school-portal</a></b> (React, FastAPI, PostgreSQL): college onboarding portal that reads ZIMSEC certificates with OCR, validates Zimbabwe national IDs and includes an AI assistant limited to each student's own data.</li>
+    <li><b><a href="https://github.com/tawandachiteshe/coinage">coinage</a></b> (Kotlin Multiplatform, Compose, SQLDelight, Ktor): local-first finance tracker from one codebase on Android, iOS, desktop and web.</li>
+    <li><b><a href="https://github.com/tawandachiteshe/mbirasyth">mbirasyth</a></b> (Rust, DSP): sample-free Shona mbira synthesizer and procedural composer for games.</li>
+    <li><b><a href="https://github.com/tawandachiteshe/crust-6502-emulator">crust-6502-emulator</a></b> (Rust): MOS 6502 CPU emulator.</li>
+    <li><b><a href="https://github.com/tawandachiteshe/cuboid">cuboid</a></b> (C++, OpenGL, Lua, EnTT): game engine and editor designed for low-end hardware.</li>
+  </ul>
+
+  <h2>Education</h2>
+  <div class="job-head"><strong>Diploma in Software Engineering — TelOne Centre for Learning (TCFL)</strong><span>2026 – present</span></div>
+  <p class="muted">Studying alongside full-time work at Nerd Zero.</p>
+</body>
+</html>
